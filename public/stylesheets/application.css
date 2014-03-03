@@ -1,0 +1,467 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    background-color: hsl(60, 90%, 80%);
+}
+
+#content {
+    width:450px;
+    height:690px;
+    border:5px solid hsl(170, 80%, 40%);
+    margin:10px auto;
+    background-color: hsl(170, 95%, 50%);
+    cursor: url('/images/hammer.png'), auto;
+}
+
+#content:active {
+  cursor: url('/images/hammer_down.png'), auto;
+}
+
+.title_view {
+  text-align: center;
+  background: black;
+  font-family: 'digital_dream';
+  color: white;
+  height: 90px;
+  padding: 30px 15px;
+}
+
+.title_view h1 {
+  margin-top: 0;
+}
+
+.title_view a {
+  width:50%;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.title_view a:hover {
+  color:#e0e0e0;
+}
+
+.hole_view {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 150px;
+  height: 180px;
+  margin-bottom: -6px;
+}
+
+.hole_view .screen {
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  background-color: hsl(170, 95%, 50%);
+  /*border: 1px solid black*/
+}
+
+.hole_view .hole {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  margin: 0 auto;
+  width: 80px;
+  height: 20px;
+  background: black;
+  border-radius: 50% / 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.hole_view .hole.top {
+  top: 80px;
+  border-radius: 50% / 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hole_view .mole_view {
+/*  -webkit-transform: scale(.2,.2);
+  transform: scale(.2,.2);*/
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+@font-face {
+    font-family: 'digital_dream';
+    src: url('/fonts/DIGITALDREAM-webfont.eot');
+    src: url('/fonts/DIGITALDREAM-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/DIGITALDREAM-webfont.woff') format('woff'),
+         url('/fonts/DIGITALDREAM-webfont.ttf') format('truetype'),
+         url('/fonts/DIGITALDREAM-webfont.svg#digital_dreamregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.mole {
+display: inline-block;
+position: relative;
+vertical-align: top;
+width: 60px;
+height: 80px;
+overflow: hidden;
+background: #58381d;
+border-radius: 30px 30px 0 0;
+}
+
+.mole * {
+  position: absolute;
+}
+
+.mole .snout {
+z-index: 8;
+width: 0;
+height: 0;
+bottom: 35px;
+right:0;
+border-left: 30px solid transparent;
+border-right: 30px solid transparent;
+border-bottom: 40px solid #3a210a;
+}
+
+.mole .nose {
+  top: 5px;
+  left: 24px;
+  z-index: 9;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid #000;
+}
+
+.mole .body {
+  width:60px;
+  height: 35px;
+  background: #3a210a;
+  bottom: 0;
+  right:0;
+}
+
+.mole .eye-border.left {
+left: 6px;
+}
+
+.mole .eye-border.right {
+left: 34px;
+}
+
+.mole .eye-border {
+z-index: 7;
+width: 20px;
+height: 20px;
+background: #796048;
+top: 14px;
+-moz-border-radius: 5em;
+-webkit-border-radius: 5em;
+-o-border-radius: 5em;
+-ms-border-radius: 5em;
+-khtml-border-radius: 5em;
+border-radius: 5em;
+}
+
+.mole.smacked .eye-border {
+    display: none;
+}
+
+.mole.smacked .xeye {
+    display: block;
+}
+
+.mole .xeye {
+  display: none;
+  z-index: 7;
+  width: 10px;
+  height: 10px;
+  -webkit-text-stroke: 1px #796048;
+  color: #000;
+  top: 14px;
+  font-size: 25px;
+  line-height: 5px;
+  font-weight: bold;
+}
+
+.mole .xeye.left {
+  left:6px;
+}
+
+.mole .xeye.right {
+  right:10px;
+}
+
+.mole .eye-border .eye {
+z-index: 6;
+width: 6px;
+height: 6px;
+margin: 2px;
+left: 0;
+background: black;
+border: 5px solid #fdfdf2;
+border-radius: 10px;
+}
+
+.tooth {
+  z-index:10;
+  height:8px;
+  width:4px;
+  top:30px;
+  background: #fdfdf2;
+}
+
+.tooth.left {
+  left:25px;
+}
+
+.tooth.right {
+  right:25px;
+}
+
+.whisker {
+  z-index:10;
+  height:4px;
+  width:4px;
+  top:30px;
+  border-radius:4px;
+  background: #000;
+}
+
+.whisker.top {
+  top:22px;
+}
+
+.whisker.top.left {
+  left:20px;
+}
+
+.whisker.top.right {
+  right:20px;
+}
+
+.whisker.middle {
+  top:26px;
+}
+
+.whisker.middle.left {
+  left:16px;
+}
+
+.whisker.middle.right {
+  right:16px;
+}
+
+.whisker.bottom {
+  top:30px;
+}
+
+.whisker.bottom.left {
+  left:13px;
+}
+
+.whisker.bottom.right {
+  right:13px;
+}

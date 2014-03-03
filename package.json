@@ -7,7 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "~3.4.x"
+    "express": "^3.4.8",
+    "logfmt": "^0.21.0",
+    "pg": "^2.11.1",
+    "orm": "^2.1.3",
+    "orm-timestamps": "^0.2.1",
+    "migrate-orm2": "^1.2.6",
+    "ejs": "^0.8.5"
   },
   "engines": {
     "node": "0.10.x",
@@ -18,5 +24,8 @@
     "url": ""
   },
   "author": "Greg Guida",
-  "license": "Free"
+  "license": "Free",
+  "keywords": [
+    "game"
+  ]
 }
