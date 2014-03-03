@@ -23,10 +23,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 
 // app.use(orm.express("mysql://username:password@host/database", {
-//     define: function (db, models, next) {
-//         models.person = db.define("person", { ... });
-//         next();
-//     }
+//   define: function (db, models, next) {
+//     models.person = db.define("person", { ... });
+//     next();
+//   }
 // }));
 
 // orm.connect(process.env.DATABASE_URL, function(err, db) {
@@ -50,18 +50,35 @@ app.use(express.bodyParser());
 // });
 
 // pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//   // client.query('SELECT * FROM your_table', function(err, result) {
-//   //   done();
-//   //   if(err) return console.error(err);
-//   //   console.log(result.rows);
-//   // });
+//   client.query('SELECT * FROM your_table', function(err, result) {
+//     done();
+//     if(err) return console.error(err);
+//     console.log(result.rows);
+//   });
 // });
 
-app.use(app.router);
-app.get('/', function(req, res){
+var index_action = function(req, res){
   res.render('index', {
     message: "SMACK!"
   });
+};
+
+
+app.use(app.router);
+app.get('/', index_action);
+app.get('/play', index_action);
+app.get('/high_scores', index_action);
+
+app.get('/games',function(req, res){
+  // res.render('index', {
+  //   message: "SMACK!"
+  // });
+});
+
+app.post('/games',function(req, res){
+  // res.render('index', {
+  //   message: "SMACK!"
+  // });
 });
 
 var port = process.env.PORT || 5000;

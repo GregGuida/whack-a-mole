@@ -4,7 +4,7 @@ var app = app || {};
 
   app.Hole = Backbone.Model.extend({
     initialize: function() { 
-
+      this.set('free',true);
     }
   });
 
