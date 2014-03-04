@@ -4,11 +4,17 @@ var app = app || {};
 
   app.HighScoreView = Backbone.View.extend({
 
-    tagName: "ul",
+    tagName: "div",
 
     className: "high_score_view",
 
-    template: _.template(""),
+    score_template: _.template(
+      "<div class='row'>"+
+        "<div><%= i+1 %>.</div>"+
+        "<div class='name'><%= name %></div>"+
+        "<div class='score'><%= score %></div>"+
+      "</div>"
+    ),
 
     events: {
       // "keypress .name":          "update",
@@ -17,12 +23,25 @@ var app = app || {};
     },
 
     initialize: function() {
+      this.listenTo(this.collection, 'sync', this.render)
       return this;
     },
 
     render: function() {
-      this.$el.html(this.template(this.model.attributes));
-      return this;
+      var self = this;
+
+      self.$el.empty();
+      console.log('render hi score view')
+
+      self.collection.each(function( game, index ){
+        self.$el.append(self.score_template({
+          i: index,
+          name: game.get('name'),
+          score: game.format_score()
+        }));
+      });
+
+      return self;
     },
 
     destroy: function() {

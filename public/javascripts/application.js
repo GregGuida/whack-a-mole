@@ -2,7 +2,7 @@ var app = app || {};
 
 (function () {
   $(function() {
-    new app.ApplicationRouter();
+    app.application_router = new app.ApplicationRouter();
     Backbone.history.start({pushState: true});
   });
 
@@ -12,6 +12,8 @@ var app = app || {};
     if ( app.game.get("step_number") < app.game.get("step_count") ) {
       app.game.set("step_number", app.game.get("step_number")+1);
       app.animation_frame = requestAnimationFrame(app.game_loop);
+    } else {
+      app.application_router.navigate('/game_over', {trigger: true});
     }
   };
 })();

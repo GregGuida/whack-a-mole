@@ -9,7 +9,8 @@ var app = app || {};
     className: "hole_view",
 
     events: {
-      'click': '_check_hit'
+      'click': '_check_hit',
+      'ontouchend': '_check_hit'
     },
 
     initialize: function() {
@@ -83,8 +84,8 @@ var app = app || {};
               this._set_mole_height(this.max_mole_height);
               this.mole.set("state","descending") 
             } else {
-              // Increment to get to the max height in 59 frames
-              this._incr_mole_height(this.max_mole_height/59);
+              // Increment to get to the max height in 58 frames
+              this._incr_mole_height(this.max_mole_height/58);
             }
 
           }
@@ -96,8 +97,8 @@ var app = app || {};
               this.model.set("free", true);
               this.mole = null;
             } else {
-              // Increment to get to the bottom in 59 framss
-              this._incr_mole_height(this.max_mole_height/-59);
+              // Increment to get to the bottom in 58 framss
+              this._incr_mole_height(this.max_mole_height/-58);
             }
           }
 

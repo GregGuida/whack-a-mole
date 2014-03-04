@@ -22,63 +22,52 @@ app.use(express.static(__dirname + '/public'));
 // parse request bodies (req.body)
 app.use(express.bodyParser());
 
-// app.use(orm.express("mysql://username:password@host/database", {
-//   define: function (db, models, next) {
-//     models.person = db.define("person", { ... });
-//     next();
-//   }
-// }));
+app.use(orm.express(process.env.DATABASE_URL, {
+  define: function (db, models) {
 
-// orm.connect(process.env.DATABASE_URL, function(err, db) {
-//     if (err) throw err;
+    models.game = db.define("games", { 
+      id         : { type: "number", defaultValue: undefined },
+      name       : String,
+      score      : Number,
+      created_at : { type: "date", defaultValue: undefined }
+    });
 
-//     db.use(modts, {
-//         createdProperty: 'created_at',
-//         modifiedProperty: 'modified_at',
-//         dbtype: { type: 'date', time: true },
-//         now: function() { return new Date(); },
-//         persist: true
-//     });
+    models.mole = db.define("moles", { 
+      id         : { type: "number", defaultValue: undefined },
+      game_id    : Number,
+      hole       : Number,
+      hit        : Boolean
+    });
 
-//     var user = db.define('user', {
-//         username: String,
-//         email: String,
-//         password: String
-//     }, {
-//         timestamp: true
-//     });
-// });
-
-// pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//   client.query('SELECT * FROM your_table', function(err, result) {
-//     done();
-//     if(err) return console.error(err);
-//     console.log(result.rows);
-//   });
-// });
-
-var index_action = function(req, res){
-  res.render('index', {
-    message: "SMACK!"
-  });
-};
+  }
+}));
 
 
 app.use(app.router);
+
+var index_action = function(req, res){
+  res.render('index', { });
+};
+
 app.get('/', index_action);
 app.get('/play', index_action);
 app.get('/high_scores', index_action);
+app.get('/game_over', index_action);
 
-app.get('/games',function(req, res){
-  // res.render('index', {
-  //   message: "SMACK!"
-  // });
+app.get( '/games', function (req, res) {
+  req.models.game.find({}, 10, [ "score", "Z" ], function (err, games) {
+    res.send(JSON.stringify(games));
+  });
 });
 
 app.post('/games',function(req, res){
-  // res.render('index', {
-  //   message: "SMACK!"
-  // });
+  console.log(req.body);
+  req.models.game.create(
+    req.body, 
+    function (err, game) {
+      res.send(JSON.stringify(err));
+    }
+  );
 });
 
 var port = process.env.PORT || 5000;

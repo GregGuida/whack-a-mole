@@ -21,8 +21,8 @@ var app = app || {};
 
     render: function() {
       this.$el.html(this.template({
-        score: this._format_score(),
-        time: this._format_time()
+        score: this.model.format_score(),
+        time: this.model.format_time()
       }));
       return this;
     },
@@ -32,23 +32,12 @@ var app = app || {};
     },
 
     _change_time: function() {
-      this.$el.find('#time_val').html(this._format_time());
+      this.$el.find('#time_val').html(this.model.format_time());
     },
 
     _change_score: function() {
-      this.$el.find('#score_val').html(this._format_score());
+      this.$el.find('#score_val').html(this.model.format_score());
       this.$el.find('#score_val').stop().css("color", "#FFFF9C").animate({ 'color': "#FFFFFF"}, 500);
-    },
-
-    _format_score: function() {
-      return pad(this.model.get('score'),6);
-    },
-
-    _format_time: function() {
-      var steps_remaining = this.model.get('step_count') - this.model.get('step_number'),
-          seconds = steps_remaining/60,
-          fractions_of_a_second = seconds - Math.floor(seconds) + '';
-      return pad(Math.floor(seconds),2) + ":" + pad(fractions_of_a_second.substr(2,2),2);
     }
 
   });
