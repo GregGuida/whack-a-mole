@@ -118,11 +118,6 @@ body {
     border:5px solid hsl(170, 80%, 40%);
     margin:10px auto;
     background-color: hsl(170, 95%, 50%);
-    cursor: url('/images/hammer.png'), auto;
-}
-
-#content:active {
-  cursor: url('/images/hammer_down.png'), auto;
 }
 
 .title_view,
